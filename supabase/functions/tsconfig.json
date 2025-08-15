@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext", "deno.ns"], // Include Deno's standard library types
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true, // Skip type checking of declaration files from external modules
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true, // Do not emit output files
+    "isolatedModules": true, // Ensure each file can be compiled independently
+    "moduleResolution": "bundler", // Or "node", depending on how your local TS resolves modules
+    "baseUrl": "."
+  },
+  "include": ["**/*.ts"] // Include all TypeScript files in this directory and subdirectories
+}
