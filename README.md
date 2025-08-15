@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Title
 
-## Getting Started
+[Project Description: A brief, one-paragraph summary of what this application does and for whom it is intended.]
 
-First, run the development server:
+## Table of Contents
 
+1.  [Technical Requirements](#technical-requirements)
+2.  [Installation Guide](#installation-guide)
+3.  [Development Guidelines](#development-guidelines)
+4.  [Deployment Process](#deployment-process)
+
+---
+
+## Technical Requirements
+
+### Development Environment
+- **Node.js**: `v20.x` or later
+- **npm**: `v10.x` or later
+- **Git**: `v2.x` or later
+
+### System Dependencies
+- A running Supabase project for database, authentication, and edge functions.
+- An Ayrshare account and API key for social media posting.
+
+### Environment Variables
+Create a `.env.local` file in the project root by copying `.env.example`. Populate it with the following values:
+
+| Variable                          | Description                                           | Example                                                                 |
+| --------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`        | The unique URL for your Supabase project.             | `https://ljtuzwiokiupxnqxlkxk.supabase.co`                                |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY`   | The anonymous (public) key for your Supabase project. | `eyJhbGciOi...`                                                         |
+| `AYRSHARE_API_KEY`                | Your secret API key for the Ayrshare service.         | `ABCDE-FGHIJ-KLMNO-PQRST`                                               |
+
+---
+
+## Installation Guide
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a `.env.local` file in the root of the project and fill in the required variables as described above.
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:3000`.
+
+---
+
+## Development Guidelines
+
+### Code Style
+This project uses Prettier for automated code formatting and ESLint for code analysis. Please run the linter before committing your changes:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Git Workflow
+- **Branch Naming:** All branches should follow the format `[type]/[ticket-number]-[description]`.
+  - `feat/T-123-add-user-profile-page`
+  - `fix/T-456-resolve-login-bug`
+  - `chore/T-789-update-dependencies`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Pull Requests (PRs):** Use the provided Pull Request template on GitHub. Ensure all sections are filled out, including testing steps and screenshots.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Code Review
+- All PRs require at least one approval from another team member.
+- Reviews should focus on correctness, readability, performance, and adherence to project conventions.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment Process
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This application is configured for easy deployment on platforms like Vercel or Netlify.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.  **Connect Git Repository:** Connect your hosting provider to your GitHub repository.
+2.  **Configure Build Settings:**
+    - **Framework Preset:** Next.js
+    - **Build Command:** `npm run build`
+    - **Output Directory:** `.next`
+3.  **Add Environment Variables:** Add the same environment variables from your `.env.local` file to the project settings on your hosting provider.
+4.  **Deploy:** Trigger a new deployment. The provider will automatically build and deploy the application.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Rollback Procedures
+Most hosting providers offer an instant rollback feature. In case of a critical issue, navigate to the project's deployment history and redeploy a previous, stable version.
